@@ -41,7 +41,10 @@ $(document).ready(function()	{
 </div>
 <?php
 require "DB/connect.inc.php";
-
+function format($text)
+{
+    return htmlentities($text,ENT_COMPAT | ENT_HTML5,'UTF-8');
+}
 /*
 Allgemeiner workflow für dieses form:
 -if post ---> eingaben validieren und wenn hidden_id update statt create eintragen in pfs_eintrage
@@ -50,7 +53,7 @@ Allgemeiner workflow für dieses form:
 Später todo --> properties hinzufügen
 */
 $E=array(); //Fehler array E bleibt leer wenn keine Fehler sodas if (!len(array))==True
-$debug=$_POST["text"];
+//$debug=$_POST["text"];
 if (isset($_POST['button']))
 {
     $text=trim($_POST["text"]);
@@ -79,6 +82,8 @@ elseif (isset($_GET['id']))
     if (is_numeric($_GET['id']))
     {   
         $id=(int)$_GET['id'];
+        $result=$db->query("select * from pfs_eintraege where id=$id");
+        $val=$result->fetch_array();
     }   
     else 
     {
@@ -100,7 +105,7 @@ else
  
     <label>Text</label>
     <label class="control-label" for="inputError" > <?php echo $E["texterr"];?> </label>
-    <textarea id="markdown" name="text" ><?php  echo $val["text"];?></textarea>
+    <textarea id="markdown" name="text" ><?php  echo format($val["body"]);?></textarea>
    <input type="hidden" name="id" value="<?php echo $id ?>" >
    <input type="submit" name="button" class="btn"> 
     </div> 
@@ -114,6 +119,7 @@ else
 <pre> 
 <?php
 echo var_dump($sql);
+print_r($debug);
 $db->close();
 ?> </pre>
 </div>

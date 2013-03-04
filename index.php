@@ -35,7 +35,7 @@ include_once "markdown/markdown.php";
 
 function format($text)
 {
-    htmlentities($_POST['text'],ENT_COMPAT | ENT_HTML5,'UTF-8');
+    return htmlentities($text,ENT_COMPAT | ENT_HTML5,'UTF-8');
 }
 
 
@@ -45,7 +45,8 @@ while ($row = $result->fetch_array())
     echo "<div class='entry'> <p>";
     print(Markdown($row["body"]));
     echo "<h3>Attributes: </h3>";
-    echo "</p></div >";    
+    echo "</p>";
+    echo "<a href='addentry.php?id=".$row["id"]."' class='btn'> Edit </a></div >";    
 }
 
 
