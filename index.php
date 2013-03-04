@@ -21,7 +21,7 @@
 
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">Notes</a>
+    <a class="brand" href="#">Blogdata</a>
     <ul class="nav">
       <li ><a href="addentry.php"> Einträge hinzufügen </a></li>
       <li> <a href="addprop.php"> Properties hinzufügen </a> </li>
@@ -31,18 +31,21 @@
 </div>
 <?php
 require "DB/connect.inc.php";
+include_once "markdown/markdown.php";
 
-
+function format($text)
+{
+    htmlentities($_POST['text'],ENT_COMPAT | ENT_HTML5,'UTF-8');
+}
 
 
 $result=$db->query("select * from pfs_eintraege");
-while ($row = $result->fetch_array()){
+while ($row = $result->fetch_array())
+{
     echo "<div class='entry'> <p>";
-    print($row["body"]);
-     echo "<h3>Attributes: </h3>";
-    echo "</p></div >";
-   
-    
+    print(Markdown($row["body"]));
+    echo "<h3>Attributes: </h3>";
+    echo "</p></div >";    
 }
 
 
