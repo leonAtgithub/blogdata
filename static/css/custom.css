@@ -1,0 +1,26 @@
+ header, section, footer, aside, nav, article, figure, audio, video, canvas  { display:block; }
+BODY { background-color:#b0e0e6; }
+a { color:#807859;
+	text-decoration:none; }
+a:hover { text-decoration:underline; }
+header { background-color:white;
+	padding:.5em;
+	text-align:center; }
+.pic {position:inherit;}
+
+.container { 
+	padding:.5em;
+	background-color:#b0e0e6; 
+	
+    }
+.entry {
+    background-color:white;
+border-radius:25px;
+    text-align:center;
+    padding:5px;
+    margin-top:10px;
+    font-size:16px;}
+footer { clear:both;
+	background-color:white;
+	padding:.5em; 
+	}
