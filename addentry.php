@@ -34,7 +34,7 @@ $(document).ready(function()	{
     <a class="brand" href="./">Blogdata</a>
     <ul class="nav">
       <li class="active"><a href="addentry.php"> Einträge hinzufügen </a></li>
-      <li> <a href="addprop.php"> Properties hinzufügen </a> </li>
+      <li> <a href="addprobdefs.php"> Properties definieren </a> </li>
       <li><a href="#">Link</a></li>
     </ul>
   </div>
@@ -107,19 +107,30 @@ else
     <label class="control-label" for="inputError" > <?php echo $E["texterr"];?> </label>
     <textarea  name="text" ><?php  echo format($val["body"]);?></textarea>
     <label>Properties:</label>
-    <select name="prop1">
+    <fieldset>
+    
     <?php 
     //db abfrage um verfügbare properties zu bekommen
     $result=$db->query("select adverb from pfs_propdef");
+    $rows=array();
     while ($row=$result->fetch_array())
-    {
-        echo "<option value=".$row['adverb'].">".$row['adverb']."</option>";
+    {// --> einfach ein fetch all weil diese php versiond as ned unterstützt        
+        $rows[]=$row;
     }
     
+    echo "<select name='"."prop1"."'>";
+    foreach($rows as $row)
+    {
+        
+        echo "<option value=".$row['adverb'].">".$row['adverb']."</option>";
+    }
+    echo "<input type='text' name='value' value='"."Dummy value"."' ></input>";
+    echo "</select>";
     ?>
-    </select>
     
+    </fieldset>
     
+   <input type="hidden" name="nr_prop" value="<?php echo 1 ;//Anzahl der properties ?>" >
    <input type="hidden" name="id" value="<?php echo $id ?>" > </br>
    <input type="submit" name="button" class="btn"> 
     </div> 
@@ -134,6 +145,7 @@ else
 <?php
 echo var_dump($sql);
 print_r($debug);
+print_r($rows);
 print_r($_POST);
 $db->close();
 ?> </pre>

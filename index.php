@@ -24,7 +24,7 @@
     <a class="brand" href="#">Blogdata</a>
     <ul class="nav">
       <li ><a href="addentry.php"> Einträge hinzufügen </a></li>
-      <li> <a href="addprop.php"> Properties hinzufügen </a> </li>
+      <li> <a href="addprobdefs.php"> Properties definieren </a> </li>
       <li><a href="#">Link</a></li>
     </ul>
   </div>
