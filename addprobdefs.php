@@ -1,48 +1,46 @@
+<html>
+<body>
 <?php
 require "DB/connect.inc.php";
 $property = $_POST['property'];
 $property = addslashes($property);
-if ((strlen($property)<2) OR (strlen($property)>30))
-{
-	echo "zu wenig oder zu viel input!";
-}
-else{
-if (isset($_POST['button']))
-{
-	if($_POST['select'] == "bool")
-{
-	$typ = "v_bool";
-}
-	if($_POST['select'] == "numeric")
-{
-	$typ = "v_numeric";
-}
-	if($_POST['select'] == "link")
-{
-	$typ = "v_link";
-}
+$selected =array('v_bool','v_link','v_numeric');
+$typ =$_POST['select'];
+$E=array();
 
-	$sql = "insert into pfs_propdef set typ='$typ', adverb='$property'";
-	$result = $db->query($sql);
-	if(db_errno)
-{
-echo "property bereits vorhanden!!";
-}
-	echo $sql;
+	if (isset($_POST['button']))
+	{
+		if ((strlen($property)<2) OR (strlen($property)>30))
+			{
+				$E['error']='zu wenig oder zu viel input';
+			}
+	else{
+		if(in_array($typ,$selected))
+		{
+			$sql = "insert into pfs_propdef set typ='$typ', adverb='$property'";
+			$result = $db->query($sql);
+			if(db_errno)
+			{
+				$E['error'] = 'property bereits vorhanden';
+			}
 
-}
+			echo $sql;
+
+		}
+	}
 }
 ?>
 
-<html>
-<body>
+
 <form action="" method="POST">
 <center>
-	<textarea name="property">"add property!"</textarea>
+	<p>"Add property"</p>
+	<?php echo $E['error']?>
+	<input name="property"></input>
 <select name="select">
-	<option value="bool">bool</option>
-	<option value="numeric">numeric</option>
-	<option value="link">link</option>
+	<option value="v_bool">bool</option>
+	<option value="v_numeric">numeric</option>
+	<option value="v_link">link</option>
 </select>
 	<input type="submit" name="button" class="btn">
 </center>
