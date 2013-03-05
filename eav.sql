@@ -25,7 +25,7 @@ create table if not exists `pfs_propdef`(
     PRIMARY KEY (`id`)
 );
 
-/*
+
 INSERT INTO pfs_propdef SET typ='v_numeric' ,adverb='has_price';
 INSERT INTO pfs_propdef SET typ='v_bool' ,adverb='has_worked';
 
@@ -36,7 +36,7 @@ INSERT INTO pfs_props SET ent_id=1, pfs_propdef_id = 1 , v_numeric= 15 ;
 INSERT INTO pfs_props SET ent_id=1, pfs_propdef_id = 2 , v_bool= 1 ;
 INSERT INTO pfs_props SET ent_id=2, pfs_propdef_id = 1 , v_numeric= 15 ;
 INSERT INTO pfs_props SET ent_id=2, pfs_propdef_id = 2 , v_bool= 0 ;
-*/
+
 -- Bsp. query: select * from pfs_props as p join pfs_propdef as pdef on p.pfs_propdef_id=pdef.id where pdef.adverb="has_price";
 /* Bsp. query select (pfs_eintraege.body) from pfs_props as p join pfs_propdef as pdef on p.pfs_propdef_id=pdef.id, pfs_props as pi join pfs_eintraege on pi.ent_id=pfs_eintraege.id where pdef.adverb="has_price";
 
