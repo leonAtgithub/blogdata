@@ -20,7 +20,7 @@ $(document).ready(function()	{
 });
 </script>
 <header>
-<h1> Eintrag hinzufügen</h1>
+<h1> Eintrag hinzufügen:</h1>
 
 </header>
 <div class="container">
