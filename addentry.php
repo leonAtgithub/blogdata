@@ -77,7 +77,63 @@ if (isset($_POST['button']))
         $E["texterr"]="Das Textfeld darf nicht leer sein.";
     }
     
-    //eigentlich nur ein if check oben drüber trotzdem wird status ob fehler über len(err) abgefragt
+    if (is_numeric($_POST["nr_props"]))
+    {   /*Hier wird es haarig: Das hidden Feld "nr_props" bestimmt wieviel variablen properties in POST übertragen werden
+          daraus holt die folgende foreach ersmal alle propdef ids raus. Anschließend werden die typ definitionen geholt
+          (sortiert nach id) und es wird verglichen ob die eingeben values sich in die entsprechend row values verwandeln lassen
+                  
+          
+        */
+        $propdefids=array(); //Für den lookup der definitionen --> speziell das typen feld
+        $propdefdict=array();
+        foreach(range(1,$_POST["nr_props"]) as $nr)
+        {
+            $propkey="prop".$nr;
+            $valuekey="value".$nr;
+            $propdefids[]=(int)$_POST[$propkey];//wichtig sonst injections möglich
+            $propdefdict[(int)$_POST[$propkey]]=$_POST[$valuekey];
+            
+        }
+        //kleiner hack wenn nur ein attribute geschrieben wird --> if ansonsten sort
+        sort($propdefids);
+        $sql_snippet= (count($propdefids)<=1)? $propdefids[0]:implode(" OR id=",$propdefids) ;
+        $lookup_sql="select typ,id,adverb from pfs_propdef where id=".$sql_snippet." ";
+        $lookup_sql.="ORDER BY id";
+        $result=$db->query($lookup_sql );
+        $typ_def=fetch_all($result);
+        
+        $sql_value="";
+        foreach ($typ_def as $row)
+        {
+           $propid=$row["id"];
+           $proptyp=$row["typ"] ;
+           echo "<h2> $proptyp </h2>";
+           $propadverb=$row["adverb"] ;
+           switch ($proptyp)
+           {
+                case "v_numeric":
+                    if (is_numeric($propdefdict[$propid]))
+                    {
+                        $sql_value=$proptyp."='".$propdefdict[$propid]."'";
+                    }
+                    else
+                    {
+                        $E[]="Property wurde als numerisch definiert";
+                    }
+                break;
+                case "v_bool":
+                    echo "Das war ein bool";
+                    break;//TODO weitermachen mit den Abfragen und typen casting gegen das propdefdict (user)
+                    
+                case "v_link":
+                    echo "Link";
+                    break;
+                
+           }
+        
+        }
+    }
+
     
     if (!count($E))
     {
@@ -121,7 +177,7 @@ else
     
     <?php 
     //db abfrage um verfügbare properties zu bekommen
-    $result=$db->query("select adverb from pfs_propdef");
+    $result=$db->query("select adverb,id from pfs_propdef");
     $rows=fetch_all($result);
     
     
@@ -129,15 +185,18 @@ else
     foreach($rows as $row)
     {
         
-        echo "<option value=".$row['adverb'].">".$row['adverb']."</option>";
+        echo "<option value='".$row['id']."' >".$row['adverb']."</option>";
     }
-    echo "<input type='text' name='value' value='"."Dummy value"."' ></input>";
+    echo "<input type='text' name='value1' value='"."Dummy value"."' ></input>";
     echo "</select>";
     ?>
     
     </fieldset>
+    //das ist nur ein statischer  dummy im Moment um nicht im javascript gleich jetzt zu ersaufen 
+    <select name='prop2'><option value='1' >has_price</option><option value='2' >has_worked</option><option value='3' >was_great</option><option value='4' >has_cost</option><option value='5' >whatever9</option><option value='6' >whatever9000</option><input type='text' name='value2' value='Dummy value' ></input></select>    
+    </fieldset>
     
-   <input type="hidden" name="nr_prop" value="<?php echo 1 ;//Anzahl der properties ?>" >
+   <input type="hidden" name="nr_props" value="<?php echo 2 ;//Anzahl der properties ?>" >
    <input type="hidden" name="id" value="<?php echo $id ?>" > </br>
    <input type="submit" name="button" class="btn"> 
     </div> 
@@ -150,22 +209,28 @@ else
 </form>
 <pre> 
 <?php
-echo var_dump($sql);
-print_r($debug);
-print_r($rows);
+//echo var_dump($_POST);
+echo "Typ definitionen:\n";
+echo var_dump($typ_def);
+echo "Propdefdict:";
+var_dump($propdefdict);
+echo "\n Sql generated:";
+echo var_dump($sql_value);
+//print_r($rows);
 print_r($_POST);
-$msql="select e.id, body ,adverb, 
+/*$msql=<<<EOT
+select e.id, body ,adverb, 
 case 
     when v_numeric IS not null then v_numeric 
     when v_bool IS not null then v_bool
     when v_link IS NOT NULL then v_link
-end
+end as value
 from pfs_eintraege as e 
 join pfs_props as p on e.id = p.ent_id 
 join pfs_propdef as pf on p.pfs_propdef_id = pf.id 
-"
+EOT;
 $result= $db->query($msql);
-print_r($result);
+print_r(fetch_all($result));*/
 $db->close();
 ?> </pre>
 </div>
