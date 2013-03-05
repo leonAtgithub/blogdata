@@ -105,8 +105,22 @@ else
  
     <label>Text</label>
     <label class="control-label" for="inputError" > <?php echo $E["texterr"];?> </label>
-    <textarea id="markdown" name="text" ><?php  echo format($val["body"]);?></textarea>
-   <input type="hidden" name="id" value="<?php echo $id ?>" >
+    <textarea  name="text" ><?php  echo format($val["body"]);?></textarea>
+    <label>Properties:</label>
+    <select name="prop1">
+    <?php 
+    //db abfrage um verfügbare properties zu bekommen
+    $result=$db->query("select adverb from pfs_propdef");
+    while ($row=$result->fetch_array())
+    {
+        echo "<option value=".$row['adverb'].">".$row['adverb']."</option>";
+    }
+    
+    ?>
+    </select>
+    
+    
+   <input type="hidden" name="id" value="<?php echo $id ?>" > </br>
    <input type="submit" name="button" class="btn"> 
     </div> 
 
@@ -120,6 +134,7 @@ else
 <?php
 echo var_dump($sql);
 print_r($debug);
+print_r($_POST);
 $db->close();
 ?> </pre>
 </div>
