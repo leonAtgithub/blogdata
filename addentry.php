@@ -34,7 +34,7 @@ $(document).ready(function()	{
     <a class="brand" href="./">Blogdata</a>
     <ul class="nav">
       <li class="active"><a href="addentry.php"> Einträge hinzufügen </a></li>
-      <li> <a href="addprobdefs.php"> Properties definieren </a> </li>
+      <li> <a href="addprop.php"> Properties definieren </a> </li>
       <li><a href="#">Link</a></li>
     </ul>
   </div>

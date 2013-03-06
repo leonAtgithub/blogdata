@@ -5,10 +5,14 @@
 <link rel="stylesheet" type="text/css" href="static/css/custom.css">
 </head>
 <body>
+<header>
+<h1> Properties hinzufügen:</h1>
+
+</header>
 <div class="container">
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">Blogdata</a>
+    <a class="brand" href="./">Blogdata</a>
     <ul class="nav">
       <li ><a href="addentry.php"> Einträge hinzufügen </a></li>
       <li> <a href="addprop.php"> Properties hinzufügen </a> </li>
