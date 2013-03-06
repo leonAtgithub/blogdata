@@ -39,7 +39,7 @@ $E=array();
             				$sql = "update pfs_propdef set typ='$typ', adverb='$property' where `id`=$id" ;
 	       				$result = $db->query($sql);
             				echo '<pre>' . $sql .'</pre>';
-					header('Location: http://homepages.uni-regensburg.de/~mel29425/blogdata/addprobdefs.php');
+					header('Location: http://homepages.uni-regensburg.de/~mel29425/blogdata/addprop.php');
 					exit;   
 					
 
