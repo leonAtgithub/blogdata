@@ -43,11 +43,11 @@ INSERT INTO pfs_props SET ent_id=2, pfs_propdef_id = 2 , v_bool= 0 ;
 */
 
 select e.id, body ,adverb, 
-case 
+(case 
     when v_numeric IS not null then v_numeric 
     when v_bool IS not null then v_bool
     when v_link IS NOT NULL then v_link
-end
+end) as value
 from pfs_eintraege as e 
 join pfs_props as p on e.id = p.ent_id 
 join pfs_propdef as pf on p.pfs_propdef_id = pf.id ;

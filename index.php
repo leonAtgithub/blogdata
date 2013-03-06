@@ -37,14 +37,25 @@ function format($text)
 {
     return htmlentities($text,ENT_COMPAT | ENT_HTML5,'UTF-8');
 }
+$mquery=<<<EOT
+select e.id, body ,adverb, 
+case 
+    when v_numeric IS not null then v_numeric 
+    when v_bool IS not null then v_bool
+    when v_link IS NOT NULL then v_link
+end as value
+from pfs_eintraege as e 
+join pfs_props as p on e.id = p.ent_id 
+join pfs_propdef as pf on p.pfs_propdef_id = pf.id 
+EOT;
 
-
-$result=$db->query("select * from pfs_eintraege");
+$result=$db->query($mquery);
 while ($row = $result->fetch_array())
 {
     echo "<div class='entry'> <p>";
     print(Markdown($row["body"]));
-    echo "<h3>Attributes: </h3>";
+    echo "<h3>Attributes: </h3> </br>";
+    echo $row['adverb'];
     echo "</p>";
     echo "<a href='addentry.php?id=".$row["id"]."' class='btn'> Edit </a></div >";    
 }

@@ -102,31 +102,46 @@ if (isset($_POST['button']))
         $result=$db->query($lookup_sql );
         $typ_def=fetch_all($result);
         
-        $sql_value="";
+        
+        $sql_prop_value_array=array();
         foreach ($typ_def as $row)
         {
+           
            $propid=$row["id"];
            $proptyp=$row["typ"] ;
            echo "<h2> $proptyp </h2>";
-           $propadverb=$row["adverb"] ;
+           
+           $propref_id_sql=" pfs_propdef_id='"."$propid'"." , ";
+           
+           $propadverb=$row["adverb"];
            switch ($proptyp)
            {
                 case "v_numeric":
                     if (is_numeric($propdefdict[$propid]))
                     {
-                        $sql_value=$proptyp."='".$propdefdict[$propid]."'";
+                        $sql_prop_value_array[]=$propref_id_sql.$proptyp."='".$propdefdict[$propid]."'";
                     }
                     else
                     {
-                        $E[]="Property wurde als numerisch definiert";
+                        $E["properr"]="Property wurde als numerisch definiert, nicht numerischer Wert übertragen. ";
                     }
                 break;
                 case "v_bool":
-                    echo "Das war ein bool";
+                    if (is_numeric($propdefdict[$propid]))
+                    {
+                        $sql_prop_value_array[]=$propref_id_sql.$proptyp."='".$propdefdict[$propid]."'";
+                    }
+                    else
+                    {
+                        $E["properr"]="Property wurde als bool definiert, kein boolscher Wert übertragen. ";
+                    }
                     break;//TODO weitermachen mit den Abfragen und typen casting gegen das propdefdict (user)
                     
                 case "v_link":
-                    echo "Link";
+                    if (is_numeric($propdefdict[$propid]))
+                    {
+                       $sql_prop_value_array[]=$propref_id_sql.$proptyp."='".$propdefdict[$propid]."'";
+                    }
                     break;
                 
            }
@@ -138,7 +153,17 @@ if (isset($_POST['button']))
     if (!count($E))
     {
         $sql="insert into pfs_eintraege set ". $text_sql ;
-        $db->query($sql);
+        $result=$db->query($sql);
+        if ($result)
+        {
+            $eintrag_id=$db->insert_id;
+            foreach($sql_prop_value_array as $sqlbit)
+            {
+                $sql_prop_value="insert into pfs_props set ent_id='"."$eintrag_id' , ". $sqlbit;
+                $result=$db->query($sql_prop_value);
+            }
+            
+        }
     }
 }
 elseif (isset($_GET['id']))
@@ -150,6 +175,7 @@ elseif (isset($_GET['id']))
         $id=(int)$_GET['id'];
         $result=$db->query("select * from pfs_eintraege where id=$id");
         $val=$result->fetch_array();
+       
     }   
     else 
     {
@@ -180,7 +206,7 @@ else
     $result=$db->query("select adverb,id from pfs_propdef");
     $rows=fetch_all($result);
     
-    
+    echo "<h3>". $E['properr'] ."</h3>";
     echo "<select name='"."prop1"."'>";
     foreach($rows as $row)
     {
@@ -191,10 +217,7 @@ else
     echo "</select>";
     ?>
     
-    </fieldset>
-    //das ist nur ein statischer  dummy im Moment um nicht im javascript gleich jetzt zu ersaufen 
-    <select name='prop2'><option value='1' >has_price</option><option value='2' >has_worked</option><option value='3' >was_great</option><option value='4' >has_cost</option><option value='5' >whatever9</option><option value='6' >whatever9000</option><input type='text' name='value2' value='Dummy value' ></input></select>    
-    </fieldset>
+    
     
    <input type="hidden" name="nr_props" value="<?php echo 2 ;//Anzahl der properties ?>" >
    <input type="hidden" name="id" value="<?php echo $id ?>" > </br>
@@ -211,13 +234,16 @@ else
 <?php
 //echo var_dump($_POST);
 echo "Typ definitionen:\n";
-echo var_dump($typ_def);
+echo var_dump($sql_prop_value_array);
 echo "Propdefdict:";
 var_dump($propdefdict);
 echo "\n Sql generated:";
 echo var_dump($sql_value);
 //print_r($rows);
-print_r($_POST);
+?>
+Errors: \n
+<?php
+print_r($E);
 /*$msql=<<<EOT
 select e.id, body ,adverb, 
 case 

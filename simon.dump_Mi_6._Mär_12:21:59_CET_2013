@@ -1,0 +1,1099 @@
+-- MySQL dump 10.13  Distrib 5.1.66, for debian-linux-gnu (i486)
+--
+-- Host: db2    Database: Phy_Kurs
+-- ------------------------------------------------------
+-- Server version	5.0.26-Max-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Not dumping tablespaces as no INFORMATION_SCHEMA.FILES table on this server
+--
+
+--
+-- Table structure for table `AnmeldFormular`
+--
+
+DROP TABLE IF EXISTS `AnmeldFormular`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AnmeldFormular` (
+  `anrede` enum('Herr','Frau') default NULL,
+  `vorname` varchar(30) default NULL,
+  `name` varchar(30) default NULL,
+  `studienziel` set('LehR','LehG','BaPhy') default NULL,
+  `fachsemester` tinyint(3) unsigned default NULL,
+  `GebDat` date default NULL,
+  `Sprach` varchar(30) default NULL,
+  `nds-account` varchar(20) NOT NULL default '',
+  PRIMARY KEY  (`nds-account`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AnmeldFormular`
+--
+
+LOCK TABLES `AnmeldFormular` WRITE;
+/*!40000 ALTER TABLE `AnmeldFormular` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AnmeldFormular` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `BMdummy`
+--
+
+DROP TABLE IF EXISTS `BMdummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `BMdummy` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `first` varchar(20) default NULL,
+  `last` varchar(20) default NULL,
+  `phone` varchar(50) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BMdummy`
+--
+
+LOCK TABLES `BMdummy` WRITE;
+/*!40000 ALTER TABLE `BMdummy` DISABLE KEYS */;
+INSERT INTO `BMdummy` VALUES (1,'Sepp','Maier','0941 9561789'),(2,'Maria','Mueller','12345'),(3,'Renate','Beck','0171-77777777');
+/*!40000 ALTER TABLE `BMdummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `FWdummy`
+--
+
+DROP TABLE IF EXISTS `FWdummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `FWdummy` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `first` varchar(20) default NULL,
+  `last` varchar(20) default NULL,
+  `phone` varchar(50) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FWdummy`
+--
+
+LOCK TABLES `FWdummy` WRITE;
+/*!40000 ALTER TABLE `FWdummy` DISABLE KEYS */;
+INSERT INTO `FWdummy` VALUES (1,'Sepp','Maier','0941 9561789'),(2,'Maria','Mueller','12345'),(3,'Renate','Beck','0171-77777777'),(5,'Bernhard','Mueller','12345'),(6,'Bernhard','ashfdjklsahfjk','12345'),(10,'hi','hu','2345678');
+/*!40000 ALTER TABLE `FWdummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `GKdummy`
+--
+
+DROP TABLE IF EXISTS `GKdummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `GKdummy` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `first` varchar(20) default NULL,
+  `last` varchar(20) default NULL,
+  `phone` varchar(50) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `GKdummy`
+--
+
+LOCK TABLES `GKdummy` WRITE;
+/*!40000 ALTER TABLE `GKdummy` DISABLE KEYS */;
+INSERT INTO `GKdummy` VALUES (1,'Sepp','Maier','0941 9561789'),(2,'Maria','Mueller','12345'),(3,'Renate','Beck','0171-77777777'),(4,'John','Karl','0176663525'),(5,'Courrier','Nouvelle','07385732681261');
+/*!40000 ALTER TABLE `GKdummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `HCLdummy`
+--
+
+DROP TABLE IF EXISTS `HCLdummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `HCLdummy` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `first` varchar(20) default NULL,
+  `last` varchar(20) default NULL,
+  `phone` varchar(50) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `HCLdummy`
+--
+
+LOCK TABLES `HCLdummy` WRITE;
+/*!40000 ALTER TABLE `HCLdummy` DISABLE KEYS */;
+INSERT INTO `HCLdummy` VALUES (1,'Sepp','Maier','0941 9561789'),(2,'Maria','Mueller','12345'),(3,'Renate','Beck','0171-77777777'),(5,'Anno','Bez','00089735');
+/*!40000 ALTER TABLE `HCLdummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `HCLtest`
+--
+
+DROP TABLE IF EXISTS `HCLtest`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `HCLtest` (
+  `datum` date default NULL,
+  `datum2` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `datum4` varchar(19) default NULL,
+  `test` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `HCLtest`
+--
+
+LOCK TABLES `HCLtest` WRITE;
+/*!40000 ALTER TABLE `HCLtest` DISABLE KEYS */;
+INSERT INTO `HCLtest` VALUES ('2007-11-27','0000-00-00 00:00:00',NULL,0),('0000-00-00','0000-00-00 00:00:00',NULL,0);
+/*!40000 ALTER TABLE `HCLtest` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `HCLtest1`
+--
+
+DROP TABLE IF EXISTS `HCLtest1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `HCLtest1` (
+  `datum` date default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `HCLtest1`
+--
+
+LOCK TABLES `HCLtest1` WRITE;
+/*!40000 ALTER TABLE `HCLtest1` DISABLE KEYS */;
+/*!40000 ALTER TABLE `HCLtest1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `HCLtest2`
+--
+
+DROP TABLE IF EXISTS `HCLtest2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `HCLtest2` (
+  `m` int(11) NOT NULL auto_increment,
+  `n` int(11) default NULL,
+  `a` int(11) NOT NULL,
+  `b` date default NULL,
+  `t` varchar(30) default NULL,
+  `xc` varchar(40) NOT NULL,
+  PRIMARY KEY  (`m`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `HCLtest2`
+--
+
+LOCK TABLES `HCLtest2` WRITE;
+/*!40000 ALTER TABLE `HCLtest2` DISABLE KEYS */;
+/*!40000 ALTER TABLE `HCLtest2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MELdummy`
+--
+
+DROP TABLE IF EXISTS `MELdummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MELdummy` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `first` varchar(20) default NULL,
+  `last` varchar(20) default NULL,
+  `phone` varchar(50) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MELdummy`
+--
+
+LOCK TABLES `MELdummy` WRITE;
+/*!40000 ALTER TABLE `MELdummy` DISABLE KEYS */;
+INSERT INTO `MELdummy` VALUES (1,'Sepp','Maier','0941 9561789'),(2,'Maria','Mueller','12345'),(3,'Renate','Beck','0171-77777777'),(4,'Renat','Beck','0171-777777'),(5,'Rena','Beck','0171-77777'),(6,'Ren','Beck','0171-7777'),(7,'Re','Beck','0171-777'),(8,'R','Beck','0171-77');
+/*!40000 ALTER TABLE `MELdummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MHchess`
+--
+
+DROP TABLE IF EXISTS `MHchess`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MHchess` (
+  `id` int(11) NOT NULL auto_increment,
+  `player1` varchar(15) NOT NULL,
+  `player1pass` varchar(15) NOT NULL,
+  `player2` varchar(15) NOT NULL,
+  `player2pass` varchar(15) NOT NULL,
+  `boardconfig` varchar(200) default NULL,
+  `amZug` varchar(30) NOT NULL,
+  `isWhite` varchar(30) NOT NULL,
+  `isOver` tinyint(4) default '0',
+  `Winner` varchar(30) default NULL,
+  `LOSER` varchar(30) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MHchess`
+--
+
+LOCK TABLES `MHchess` WRITE;
+/*!40000 ALTER TABLE `MHchess` DISABLE KEYS */;
+INSERT INTO `MHchess` VALUES (1,'Ich','','da','','a2,b3,c4','','',0,NULL,NULL),(36,'','','a','',NULL,'','',1,NULL,''),(37,'bernhard','','markus','',NULL,'bernhard','bernhard',1,NULL,'markus'),(38,'bernhard','','markus','',NULL,'bernhard','bernhard',1,NULL,'markus'),(39,'bernhard','','markus','','21,22,23,24,25,26,0,0,11,18,13,16,12,17,14,15,71,72,73,74,45,67,58,78,81,88,83,86,82,87,84,85,0,0,0','bernhard','bernhard',1,NULL,'markus'),(40,'bernhard','','markus','',NULL,'bernhard','bernhard',1,NULL,'bernhard'),(41,'bernhard','','markus','','21,22,23,24,0,26,57,28,11,18,13,16,12,17,14,15,71,72,73,45,75,76,77,78,81,88,83,86,82,87,84,85,0,0,0','markus','bernhard',1,NULL,'markus'),(42,'markus','','asd','',NULL,'markus','markus',1,NULL,'asd'),(43,'bernhard','','markus','','21,22,23,24,54,26,27,28,11,18,13,16,12,17,14,15,71,72,73,0,75,76,77,78,81,88,83,86,82,87,84,85,0,0,0','markus','bernhard',1,NULL,'markus'),(44,'asd','','','','21,22,23,24,65,0,0,28,11,18,13,52,12,36,14,15,71,72,63,74,27,56,77,78,81,88,83,86,82,87,84,85,0,0,0','asd','asd',1,NULL,'asd'),(45,'','','a','','21,22,23,24,36,0,0,28,11,18,13,16,12,0,14,25,71,72,73,54,0,76,77,78,81,88,0,86,82,87,48,85,0,0,0','a','',0,NULL,NULL),(46,'inge','','markus','','21,22,23,24,0,26,27,28,11,18,13,16,54,17,14,15,71,53,0,0,75,76,77,78,81,88,83,86,82,87,84,85,0,0,0','markus','inge',1,NULL,'markus'),(47,'foo','','markus','','21,0,43,44,35,26,27,28,11,18,24,0,12,17,14,15,71,0,63,54,75,66,77,78,81,88,83,86,82,87,41,85,0,0,0','markus','foo',1,NULL,'foo'),(48,'asd','','markus','','21,22,23,24,45,26,27,28,11,18,13,16,12,17,14,15,71,72,73,54,75,76,77,78,81,88,83,86,82,87,84,85,0,0,0','asd','asd',1,NULL,'asd'),(49,'asd','','markus','','21,22,23,24,45,26,27,28,11,18,13,16,12,17,14,15,71,72,73,54,75,76,77,78,81,88,83,86,82,87,84,85,0,0,0','asd','asd',1,NULL,'asd'),(50,'asd','','markus','',NULL,'asd','asd',1,NULL,'asd'),(51,'markus','','asd','','21,22,23,24,45,26,27,28,11,18,13,16,12,17,14,15,71,72,73,74,55,76,77,78,81,88,83,86,82,87,84,85,0,0,0','markus','markus',1,NULL,'markus'),(52,'markus','','asd','','21,22,23,24,45,26,27,28,11,18,13,16,12,17,14,15,71,72,73,74,75,76,77,78,81,88,83,86,82,87,84,85,0,0,0','asd','markus',1,NULL,'asd'),(53,'markus','','asd','','21,22,23,24,45,26,27,28,11,18,13,16,12,17,14,15,71,72,73,74,55,76,77,78,81,88,83,86,82,87,84,85,0,0,0','markus','markus',0,NULL,NULL),(54,'','','a','','21,22,23,24,45,26,27,28,11,18,13,16,12,17,14,15,71,72,73,74,75,76,77,78,81,88,83,86,82,87,84,85,0,0,0','a','',0,NULL,NULL),(55,'','','a','','21,22,23,24,45,26,27,28,11,18,13,16,12,17,14,15,71,72,73,74,75,76,77,78,81,88,83,86,82,87,84,85,0,0,0','a','',0,NULL,NULL),(56,'','','a','','21,22,23,24,45,26,27,28,11,18,13,16,12,17,14,15,71,72,73,74,75,76,77,78,81,88,83,86,82,87,84,85,0,0,0','a','',0,NULL,NULL);
+/*!40000 ALTER TABLE `MHchess` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MHdummy`
+--
+
+DROP TABLE IF EXISTS `MHdummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MHdummy` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `first` varchar(20) default NULL,
+  `last` varchar(20) default NULL,
+  `phone` varchar(50) default NULL,
+  `gebtag` date default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MHdummy`
+--
+
+LOCK TABLES `MHdummy` WRITE;
+/*!40000 ALTER TABLE `MHdummy` DISABLE KEYS */;
+INSERT INTO `MHdummy` VALUES (1,'Sepp','Maier','0941 9561789','1990-01-03'),(2,'Maria','Mueller','12345',NULL),(3,'Renate','Beck','0171-77777777',NULL),(5,'Max','Neu','5555',NULL),(8,'men','test','1232',NULL);
+/*!40000 ALTER TABLE `MHdummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MHtag4`
+--
+
+DROP TABLE IF EXISTS `MHtag4`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MHtag4` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(30) NOT NULL,
+  `eMail` varchar(30) NOT NULL,
+  `GebJahr` date NOT NULL,
+  `ExpTheo` enum('Exp','Theo') default NULL,
+  `sprachen` set('de','en','es') default NULL,
+  `abschluss` set('abi','dipl','bach','mast','ausb') default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MHtag4`
+--
+
+LOCK TABLES `MHtag4` WRITE;
+/*!40000 ALTER TABLE `MHtag4` DISABLE KEYS */;
+INSERT INTO `MHtag4` VALUES (1,'Max Mustermann','','1970-01-01','Theo','','dipl,bach,mast'),(33,'','d@s','1979-01-01','Theo','en','mast'),(32,'','d@s','1979-01-01','Theo','en','mast'),(31,'','4545545454554','1979-01-01','Theo','en','mast'),(30,'5555555','d@s','1979-01-01','Theo','en','mast'),(29,'','d@s','1979-01-01','Theo','en','mast'),(28,'asdd','d@sddddddddd','1970-01-01','Theo','en','mast'),(27,'1231212121','d@s','1979-01-01','Theo','en','mast'),(26,'ffffggg','d@s','1970-01-01','Theo','en','bach,mast'),(25,'dddddd111111','d@s','1970-01-01','Theo','en','bach'),(24,'kl5','d@s','1970-01-01','Theo','',''),(34,'ddddddddd','d@s','1970-01-01','Theo','en','bach,mast,ausb'),(35,'ddddddddd','d@s','1970-01-01','Theo','en','bach,mast,ausb'),(36,'ddddddddd','d@s','1970-01-01','Theo','en','bach,mast,ausb'),(37,'jkjkjkjk','d@s','1970-01-01','Theo','de','dipl,bach,mast'),(38,'gg','d@s','1970-01-01','Theo','en','dipl,bach'),(39,'jkjkjkjk','d@s','1973-01-01','','en','bach,mast,ausb'),(40,'ssss','d@s','1970-01-01','Theo','en','dipl,bach'),(41,'dssssss','d@s','1970-01-01','Theo','de','dipl,bach'),(42,'hhhhhkk','d@s','1970-01-01','Theo','de','dipl,bach'),(43,'klk','d@s','1970-01-01','Theo','en','dipl,bach'),(44,'','d@s','1970-01-01','Theo','en','dipl,bach'),(45,'','d@s','1970-01-01','Theo','en','dipl,bach'),(46,'','d@s','1970-01-01','Theo','en','dipl,bach'),(47,'','d@s','1970-01-01','Theo','en','dipl,bach');
+/*!40000 ALTER TABLE `MHtag4` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MHusers`
+--
+
+DROP TABLE IF EXISTS `MHusers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MHusers` (
+  `user` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL default 'passwort',
+  `Rang` varchar(30) default NULL,
+  PRIMARY KEY  (`user`),
+  UNIQUE KEY `user` (`user`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MHusers`
+--
+
+LOCK TABLES `MHusers` WRITE;
+/*!40000 ALTER TABLE `MHusers` DISABLE KEYS */;
+INSERT INTO `MHusers` VALUES ('markus','pass',NULL),('bernhard','passwort',NULL),('bernhard2','pass',NULL),('a','a',NULL),('','',NULL),('asd','asd',NULL),('asdf','asd',NULL),('fgh','fgh',NULL),('inge','inge',NULL),('foo','bar',NULL);
+/*!40000 ALTER TABLE `MHusers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PFSdummy`
+--
+
+DROP TABLE IF EXISTS `PFSdummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PFSdummy` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `first` varchar(20) default NULL,
+  `last` varchar(20) default NULL,
+  `phone` varchar(50) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PFSdummy`
+--
+
+LOCK TABLES `PFSdummy` WRITE;
+/*!40000 ALTER TABLE `PFSdummy` DISABLE KEYS */;
+INSERT INTO `PFSdummy` VALUES (1,'Sepp','Maier','0941 9561789'),(2,'Maria','Mueller','12345'),(3,'Renate','Beck','0171-77777777'),(4,'Hans','Wurscht','12312321'),(5,'Hans','Wurscht','00861-7890');
+/*!40000 ALTER TABLE `PFSdummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Projekt`
+--
+
+DROP TABLE IF EXISTS `Projekt`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Projekt` (
+  `anrede` enum('Herr','Frau') default NULL,
+  `vorname` varchar(30) default NULL,
+  `nachname` varchar(30) default NULL,
+  `email` varchar(50) default NULL,
+  `land` tinytext,
+  `postleitzahl` int(10) default NULL,
+  `strasse` varchar(50) default NULL,
+  `id` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Projekt`
+--
+
+LOCK TABLES `Projekt` WRITE;
+/*!40000 ALTER TABLE `Projekt` DISABLE KEYS */;
+INSERT INTO `Projekt` VALUES ('Herr','Herr','Kalim','Kpegouni','kalimkpegouni@yahoo.fr',0,'93059',1),('Herr','Herr','Kalim','Kpegouni','kalimkpegouni@yahoo.fr',0,'93059',2);
+/*!40000 ALTER TABLE `Projekt` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `WJdummy`
+--
+
+DROP TABLE IF EXISTS `WJdummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `WJdummy` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `first` varchar(20) default NULL,
+  `last` varchar(20) default NULL,
+  `phone` varchar(50) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `WJdummy`
+--
+
+LOCK TABLES `WJdummy` WRITE;
+/*!40000 ALTER TABLE `WJdummy` DISABLE KEYS */;
+INSERT INTO `WJdummy` VALUES (1,'Sepp','Maier','0941 9561789'),(2,'Maria','Maier','12345'),(3,'Renate','Beck','0171-77777777'),(5,'peter',NULL,NULL);
+/*!40000 ALTER TABLE `WJdummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emMitarbeiter`
+--
+
+DROP TABLE IF EXISTS `emMitarbeiter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emMitarbeiter` (
+  `name` varchar(30) default NULL,
+  `sprache` set('deutsch','englisch','spanisch') default NULL,
+  `datum` date default NULL,
+  `zeitstempel` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `fuenf` varchar(30) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emMitarbeiter`
+--
+
+LOCK TABLES `emMitarbeiter` WRITE;
+/*!40000 ALTER TABLE `emMitarbeiter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `emMitarbeiter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emdummy`
+--
+
+DROP TABLE IF EXISTS `emdummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emdummy` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `first` varchar(20) default NULL,
+  `last` varchar(20) default NULL,
+  `phone` varchar(50) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emdummy`
+--
+
+LOCK TABLES `emdummy` WRITE;
+/*!40000 ALTER TABLE `emdummy` DISABLE KEYS */;
+INSERT INTO `emdummy` VALUES (1,'Sepp','Maier','0941 9561789'),(2,'Maria','Hallhuber','12345'),(3,'Renate','Obermose','0171-77777777'),(4,'Xaver','Hinterkrainer','12984');
+/*!40000 ALTER TABLE `emdummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emmit`
+--
+
+DROP TABLE IF EXISTS `emmit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emmit` (
+  `name` varchar(30) default NULL,
+  `gebdatum` date default NULL,
+  `eintritt` time default NULL,
+  `registrierung` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emmit`
+--
+
+LOCK TABLES `emmit` WRITE;
+/*!40000 ALTER TABLE `emmit` DISABLE KEYS */;
+INSERT INTO `emmit` VALUES ('Sepp','1990-09-25','15:00:00','0000-00-00 00:00:00'),('Zenzi',NULL,NULL,'2013-02-28 10:39:14');
+/*!40000 ALTER TABLE `emmit` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `freunde`
+--
+
+DROP TABLE IF EXISTS `freunde`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `freunde` (
+  `username` varchar(30) default NULL,
+  `freund` varchar(30) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `freunde`
+--
+
+LOCK TABLES `freunde` WRITE;
+/*!40000 ALTER TABLE `freunde` DISABLE KEYS */;
+INSERT INTO `freunde` VALUES ('max','John Doe'),('John Doe','max'),('John Doe','max'),('max','John Doe'),('max','John Doe'),('John Doe','max'),('max','sepp'),('max','John Doe'),('John Doe','max'),('max','John Doe'),('John Doe','John Doe'),('spam','max'),('max','spam');
+/*!40000 ALTER TABLE `freunde` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `kundendaten`
+--
+
+DROP TABLE IF EXISTS `kundendaten`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `kundendaten` (
+  `anrede` enum('Herr','Frau') default NULL,
+  `vorname` varchar(30) default NULL,
+  `nachname` varchar(30) default NULL,
+  `email` varchar(50) default NULL,
+  `land` tinytext,
+  `postleitzahl` int(10) default NULL,
+  `strasse` varchar(50) default NULL,
+  `agb` enum('ja') default NULL,
+  `zahlungsmethode` enum('Nachnahme','Rechnung','Kreditkarte','Vorkasse','PayPal') default NULL,
+  `id` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kundendaten`
+--
+
+LOCK TABLES `kundendaten` WRITE;
+/*!40000 ALTER TABLE `kundendaten` DISABLE KEYS */;
+INSERT INTO `kundendaten` VALUES ('Herr','ipÃ¼i','qe','','',12314,'dfdhdah','','PayPal',1);
+/*!40000 ALTER TABLE `kundendaten` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `mel_db2`
+--
+
+DROP TABLE IF EXISTS `mel_db2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mel_db2` (
+  `vorname` varchar(40) NOT NULL,
+  `zuname` varchar(40) NOT NULL,
+  `key` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`key`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mel_db2`
+--
+
+LOCK TABLES `mel_db2` WRITE;
+/*!40000 ALTER TABLE `mel_db2` DISABLE KEYS */;
+INSERT INTO `mel_db2` VALUES ('string','',1),('','',2),('vorname','zuname',3);
+/*!40000 ALTER TABLE `mel_db2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nachrichten`
+--
+
+DROP TABLE IF EXISTS `nachrichten`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nachrichten` (
+  `von` varchar(30) default NULL,
+  `an` varchar(30) default NULL,
+  `text` varchar(1000) default NULL,
+  `zeit` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nachrichten`
+--
+
+LOCK TABLES `nachrichten` WRITE;
+/*!40000 ALTER TABLE `nachrichten` DISABLE KEYS */;
+INSERT INTO `nachrichten` VALUES ('jana','max','Dafuq!','2013-03-04 13:05:19'),('John Doe','John Doe','Es kÃ¶nnen nur Nachrichten mit max. 1000 Zeichen verschickt werden!...','2013-03-06 10:19:08'),('sepp','max','Hallo Welt, ich mein max!','2013-03-04 12:19:31'),('John Doe','Markus','Testnachricht','2013-03-06 10:19:08'),('John Doe','John Doe','tinatinatina\r\n','2013-03-06 10:19:08'),('John Doe','John Doe','tint','2013-03-06 10:19:08'),('John Doe','John Doe','tina\r\n','2013-03-06 10:19:08'),('John Doe','John Doe','Es kÃ¶nnen nur Nachrichten mit max. 1000 Zeichen verschickt werden!...','2013-03-06 10:19:08'),('John Doe','John Doe','Es kÃ¶nnen nur Nachrichten mit max. 1000 Zeichen verschickt werden!...','2013-03-06 10:19:08'),('John Doe','John Doe','Es kÃ¶nnen nur Nachrichten mit max. 1000 Zeichen verschickt werden!...','2013-03-06 10:19:08'),('John Doe','John Doe','Es kÃ¶nnen nur Nachrichten mit max. 1000 Zeichen verschickt werden!...','2013-03-06 10:19:08'),('John Doe','John Doe','Es kÃ¶nnen nur Nachrichten mit max. 1000 Zeichen verschickt werden!...','2013-03-06 10:19:08'),('John Doe','John Doe','Es kÃ¶nnen nur Nachrichten mit max. 1000 Zeichen verschickt werden!...','2013-03-06 10:19:08'),('jana','John Doe','Hallo Tina!','2013-03-06 10:19:08'),('John Doe','jana','Hallo Jana!','2013-03-06 10:19:08'),('John Doe','Jana','Test einer gesendeten Nachricht','2013-03-06 10:19:08'),('binÃ¼r','binÃ¼r','binÃ¼r ist sch***e!','2013-03-05 10:19:40'),('binÃ¼r','jana','binÃ¼r ist besser als binÃ¤r','2013-03-05 10:20:03'),('max','max','test\r\n','2013-03-05 11:34:06'),('max','max','GEILES WETTER HEUTE!','2013-03-05 13:07:46'),('max','jana','hallo du','2013-03-05 13:08:01'),('max','sepp','Sie haben eine Freundschaftsanfrage von max erhalten','2013-03-05 15:43:18'),('max','maria','Sie haben eine Freundschaftsanfrage von max erhalten','2013-03-05 15:43:39'),('John Doe','max','Sie haben eine Freundschaftsanfrage von yxcv erhalten','2013-03-06 10:24:09'),('max','John Doe','Sie haben eine Freundschaftsanfrage von max erhalten','2013-03-06 10:24:09'),('John Doe','Pantsfree','Sie haben eine Freundschaftsanfrage von yxcv erhalten','2013-03-06 10:24:09'),('John Doe','John Doe','1234','2013-03-06 10:19:08'),('John Doe','max','Es kÃ¶nnen nur Nachrichten mit max. 1000 Zeichen verschickt werden!...','2013-03-06 10:19:08'),('John Doe','Pantsfree','as','2013-03-06 10:24:09'),('John Doe','Pantsfree','Es kÃ¶nnen nur Nachrichten mit max. 1000 Zeichen verschickt werden!...','2013-03-06 10:24:09'),('John Doe','max','122','2013-03-06 10:19:08'),('John Doe','max','122','2013-03-06 10:19:08'),('John Doe','max','122','2013-03-06 10:19:08'),('spam','max','Sie haben eine Freundschaftsanfrage von spam erhalten','2013-03-06 09:27:28'),('max','spam','Sie haben eine Freundschaftsanfrage von max erhalten','2013-03-06 09:28:19');
+/*!40000 ALTER TABLE `nachrichten` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pfs_db`
+--
+
+DROP TABLE IF EXISTS `pfs_db`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pfs_db` (
+  `text` text NOT NULL,
+  `tags` varchar(500) default NULL,
+  `state` enum('public','private') default NULL,
+  `pubdate` datetime NOT NULL,
+  `key` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`key`)
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pfs_db`
+--
+
+LOCK TABLES `pfs_db` WRITE;
+/*!40000 ALTER TABLE `pfs_db` DISABLE KEYS */;
+INSERT INTO `pfs_db` VALUES ('testing','some,tag','','0000-00-00 00:00:00',1),('More blabla','some;tag','','0000-00-00 00:00:00',2),('More blabla','some;tag','','0000-00-00 00:00:00',3),(' asdasd',NULL,NULL,'0000-00-00 00:00:00',4),(' asdsad',NULL,NULL,'0000-00-00 00:00:00',5),(' asdad',NULL,NULL,'0000-00-00 00:00:00',6),(' Pizza','essen food',NULL,'0000-00-00 00:00:00',7),(' Pizza','essen food',NULL,'0000-00-00 00:00:00',8),(' Pizza','essen food',NULL,'0000-00-00 00:00:00',9),(' ','adsasd',NULL,'0000-00-00 00:00:00',10),('','asdasd',NULL,'0000-00-00 00:00:00',11),('','asdasd',NULL,'0000-00-00 00:00:00',12),('','asdasd',NULL,'0000-00-00 00:00:00',13),('','asdasd',NULL,'0000-00-00 00:00:00',14),('','',NULL,'0000-00-00 00:00:00',15),('','',NULL,'0000-00-00 00:00:00',16);
+/*!40000 ALTER TABLE `pfs_db` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pfs_db2`
+--
+
+DROP TABLE IF EXISTS `pfs_db2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pfs_db2` (
+  `name` varchar(40) NOT NULL,
+  `ansprache` enum('Herr','Frau') default NULL,
+  `geburtstag` datetime NOT NULL,
+  `key` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`key`)
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pfs_db2`
+--
+
+LOCK TABLES `pfs_db2` WRITE;
+/*!40000 ALTER TABLE `pfs_db2` DISABLE KEYS */;
+INSERT INTO `pfs_db2` VALUES ('Hans','Herr','2022-08-09 00:00:00',1),('Hans','Herr','2012-12-12 00:00:00',2),('Socher','Herr','2018-12-12 00:00:00',6),('Socher','Herr','2008-09-21 00:00:00',7),('asdf','Frau','2012-12-12 00:00:00',19),('Simon Pfeiffer','Herr','1988-08-23 00:00:00',21),('Simon Pfeiffer','Herr','1988-08-23 00:00:00',22),('Hallo','Herr','1988-08-23 00:00:00',23),('Simon Pfeiffer','Herr','1988-08-23 00:00:00',24),('Simon Pfeiffer','Herr','1988-08-23 00:00:00',25),('Saufen','Frau','2012-12-12 00:00:00',26);
+/*!40000 ALTER TABLE `pfs_db2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pfs_eintraege`
+--
+
+DROP TABLE IF EXISTS `pfs_eintraege`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pfs_eintraege` (
+  `id` int(11) NOT NULL auto_increment,
+  `body` text NOT NULL,
+  `created_date` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `modifiy_date` timestamp NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pfs_eintraege`
+--
+
+LOCK TABLES `pfs_eintraege` WRITE;
+/*!40000 ALTER TABLE `pfs_eintraege` DISABLE KEYS */;
+INSERT INTO `pfs_eintraege` VALUES (1,'Some simple dummy text with *markdown* syntax :)','2013-03-04 09:49:38','2013-03-04 14:17:59'),(2,'Some simple dummy text with *markdown* syntax :)','2013-03-04 09:49:38','2013-03-04 14:17:59'),(3,'Some simple dummy text with *markdown* syntax :)','2013-03-04 12:51:15','2013-03-04 14:17:59'),(4,'Some simple dummy text with *markdown* syntax :)','2013-03-04 12:52:48','2013-03-04 14:17:59'),(5,'Formatierung ?\r\n=============\r\nTaugt doch ganz gut ...','2013-03-04 14:22:42','0000-00-00 00:00:00'),(6,'Heading\r\n=======\r\n\r\nSubheading\r\n----------\r\n\r\netc......','2013-03-04 14:54:21','0000-00-00 00:00:00'),(7,'Does that work \r\n=================\r\n\r\n\r\nPretty impressive','2013-03-04 15:07:33','0000-00-00 00:00:00'),(8,'Some simple dummy text with *markdown* syntax :)','2013-03-04 15:07:44','0000-00-00 00:00:00'),(9,'Some simple dummy text with *markdown* syntax :)\r\n================================================','2013-03-04 15:08:11','0000-00-00 00:00:00'),(10,'Tests\r\n-------\r\n\r\nFormatierung ist schon ned schlecht soweit','2013-03-05 10:04:07','0000-00-00 00:00:00'),(11,'sad','2013-03-05 10:38:52','0000-00-00 00:00:00'),(12,'sad','2013-03-05 10:39:23','0000-00-00 00:00:00'),(13,'A random entry describing foo stuff','2013-03-05 12:35:33','0000-00-00 00:00:00'),(14,'Another ','2013-03-05 12:35:33','0000-00-00 00:00:00'),(15,'A random entry describing foo stuff','2013-03-05 12:38:12','0000-00-00 00:00:00'),(16,'Another ','2013-03-05 12:38:12','0000-00-00 00:00:00'),(17,'Ein neuer Eintrag mit korrekten tagging \r\n\r\nFunktioneirt das ?\r\n----------------------','2013-03-06 10:21:56','0000-00-00 00:00:00'),(18,'Ein neuer Eintrag mit korrekten tagging \r\n\r\nFunktioneirt das ?\r\n----------------------','2013-03-06 10:24:11','0000-00-00 00:00:00'),(19,'Noch ein test','2013-03-06 10:30:01','0000-00-00 00:00:00'),(20,'FOOBAR!!!','2013-03-06 10:31:42','0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `pfs_eintraege` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pfs_propdef`
+--
+
+DROP TABLE IF EXISTS `pfs_propdef`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pfs_propdef` (
+  `id` int(11) NOT NULL auto_increment,
+  `typ` enum('v_numeric','v_bool','v_link') default NULL,
+  `adverb` varchar(50) NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `adverb` (`adverb`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pfs_propdef`
+--
+
+LOCK TABLES `pfs_propdef` WRITE;
+/*!40000 ALTER TABLE `pfs_propdef` DISABLE KEYS */;
+INSERT INTO `pfs_propdef` VALUES (1,'v_numeric','has_price'),(2,'v_bool','has_worked'),(3,'v_bool','was_great'),(4,'v_numeric','has_cost'),(5,'v_bool','whatever9'),(6,'v_bool','whatever9000');
+/*!40000 ALTER TABLE `pfs_propdef` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pfs_props`
+--
+
+DROP TABLE IF EXISTS `pfs_props`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pfs_props` (
+  `id` int(11) NOT NULL auto_increment,
+  `ent_id` int(11) NOT NULL,
+  `pfs_propdef_id` int(11) NOT NULL,
+  `v_numeric` float default NULL,
+  `v_bool` tinyint(1) default NULL,
+  `v_link` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pfs_props`
+--
+
+LOCK TABLES `pfs_props` WRITE;
+/*!40000 ALTER TABLE `pfs_props` DISABLE KEYS */;
+INSERT INTO `pfs_props` VALUES (1,1,1,15,NULL,NULL),(2,1,2,NULL,1,NULL),(3,2,1,15,NULL,NULL),(4,2,2,NULL,0,NULL),(5,1,1,15,NULL,NULL),(6,1,2,NULL,1,NULL),(7,2,1,15,NULL,NULL),(8,2,2,NULL,0,NULL),(9,1,1,15,NULL,NULL),(10,1,2,NULL,1,NULL),(11,2,1,15,NULL,NULL),(12,2,2,NULL,0,NULL),(13,18,1,12,NULL,NULL),(14,19,1,111111,NULL,NULL),(15,19,0,NULL,1,NULL),(16,20,1,666,NULL,NULL),(17,20,2,NULL,1,NULL);
+/*!40000 ALTER TABLE `pfs_props` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `physikanmeld`
+--
+
+DROP TABLE IF EXISTS `physikanmeld`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `physikanmeld` (
+  `Anrede` enum('Frau','Herr') default NULL,
+  `Vorname` varchar(30) default NULL,
+  `Studienziel` enum('Bachelor Physik','Bachelor Mathematik','Lehramt Gymnasium','Lehramt Realschule') default NULL,
+  `Fachsemester` enum('1','2','3','4') default NULL,
+  `Geburtsdatum` date default NULL,
+  `eMailadresse` varchar(30) default NULL,
+  `Termin1` enum('Termin 1','Termin 2','Termin 3','Termin 4') default NULL,
+  `Termin2` enum('Termin 1','Termin 2','Termin 3','Termin 4') default NULL,
+  `Sprache` set('en','de','es') default NULL,
+  `NDS` varchar(8) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `physikanmeld`
+--
+
+LOCK TABLES `physikanmeld` WRITE;
+/*!40000 ALTER TABLE `physikanmeld` DISABLE KEYS */;
+INSERT INTO `physikanmeld` VALUES ('Herr','Max','Bachelor Mathematik','3','1999-08-22','test@test','Termin 2','Termin 3','de,es','xyz98765'),('Herr','ppp','Bachelor Physik','1','2006-03-06','sef@','Termin 1','Termin 2','en','sep12345'),('Herr','Xaver Obermoser','Bachelor Mathematik','3','1983-09-23','OberXare@supreme.de','Termin 1','Termin 2','en,de,es','obx24681'),('','iiojo','','','0000-00-00','','Termin 1','Termin 2','','');
+/*!40000 ALTER TABLE `physikanmeld` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `produktdaten`
+--
+
+DROP TABLE IF EXISTS `produktdaten`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `produktdaten` (
+  `id` int(11) NOT NULL auto_increment,
+  `kundenID` int(10) default NULL,
+  `produktname` varchar(30) NOT NULL,
+  `preis` int(10) default NULL,
+  `bestelldatum` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `produktdaten`
+--
+
+LOCK TABLES `produktdaten` WRITE;
+/*!40000 ALTER TABLE `produktdaten` DISABLE KEYS */;
+INSERT INTO `produktdaten` VALUES (1,2,'Staubsauger',25,'2013-03-05 14:48:00');
+/*!40000 ALTER TABLE `produktdaten` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `test`
+--
+
+DROP TABLE IF EXISTS `test`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `test` (
+  `tt` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `test`
+--
+
+LOCK TABLES `test` WRITE;
+/*!40000 ALTER TABLE `test` DISABLE KEYS */;
+/*!40000 ALTER TABLE `test` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tr2dummy`
+--
+
+DROP TABLE IF EXISTS `tr2dummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tr2dummy` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(30) default NULL,
+  `telenr` varchar(30) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tr2dummy`
+--
+
+LOCK TABLES `tr2dummy` WRITE;
+/*!40000 ALTER TABLE `tr2dummy` DISABLE KEYS */;
+INSERT INTO `tr2dummy` VALUES (8,'Hans','hans@hanshausen.de','874984684'),(9,'Sepp','sepp@sepphause.de','84789489');
+/*!40000 ALTER TABLE `tr2dummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `trdummy`
+--
+
+DROP TABLE IF EXISTS `trdummy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trdummy` (
+  `id` int(11) NOT NULL auto_increment,
+  `ziel` varchar(30) NOT NULL,
+  `schwierigkeit` varchar(30) default NULL,
+  `dauer` varchar(10) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trdummy`
+--
+
+LOCK TABLES `trdummy` WRITE;
+/*!40000 ALTER TABLE `trdummy` DISABLE KEYS */;
+INSERT INTO `trdummy` VALUES (7,'Kramer','schwer','9h'),(8,'Laabertaal','leicht','2h');
+/*!40000 ALTER TABLE `trdummy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `trevent`
+--
+
+DROP TABLE IF EXISTS `trevent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trevent` (
+  `event_id` int(11) NOT NULL auto_increment,
+  `wanderung_id` int(11) default NULL,
+  `fahrer` tinyint(1) default NULL,
+  PRIMARY KEY  (`event_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trevent`
+--
+
+LOCK TABLES `trevent` WRITE;
+/*!40000 ALTER TABLE `trevent` DISABLE KEYS */;
+INSERT INTO `trevent` VALUES (8,8,0);
+/*!40000 ALTER TABLE `trevent` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `trtermine`
+--
+
+DROP TABLE IF EXISTS `trtermine`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trtermine` (
+  `event_id` int(11) default NULL,
+  `personen_id` int(11) default NULL,
+  `datum` date default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trtermine`
+--
+
+LOCK TABLES `trtermine` WRITE;
+/*!40000 ALTER TABLE `trtermine` DISABLE KEYS */;
+INSERT INTO `trtermine` VALUES (8,8,'2013-01-01'),(8,8,'2013-01-02');
+/*!40000 ALTER TABLE `trtermine` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `userdaten`
+--
+
+DROP TABLE IF EXISTS `userdaten`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userdaten` (
+  `Anrede` enum('Herr','Frau') default NULL,
+  `username` varchar(30) default NULL,
+  `passwort` varchar(100) default NULL,
+  `emailadresse` varchar(30) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userdaten`
+--
+
+LOCK TABLES `userdaten` WRITE;
+/*!40000 ALTER TABLE `userdaten` DISABLE KEYS */;
+INSERT INTO `userdaten` VALUES ('Herr','max','5452eea2e1ff9cefa25f5fb590386dfb','max@m'),('Herr','sepp','ecb87f8a05d68fb475153aa881865f91','sepp@'),('Herr','John Doe','4c2a904bafba06591225113ad17b5cec','spam@spam'),('Herr','John Doe','4c2a904bafba06591225113ad17b5cec','spam@spam'),('Herr','John Doe','4c2a904bafba06591225113ad17b5cec','spam@spam'),('Herr','spam','e09f6a7593f8ae3994ea57e1117f67ec','bcghdtv@gmail.com');
+/*!40000 ALTER TABLE `userdaten` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wjFormInput`
+--
+
+DROP TABLE IF EXISTS `wjFormInput`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `wjFormInput` (
+  `anrede` enum('Herr','Frau') default NULL,
+  `vorname` varchar(30) default NULL,
+  `nachname` varchar(30) default NULL,
+  `ziel` varchar(30) default NULL,
+  `geburtstag` date default NULL,
+  `semester` tinyint(4) default NULL,
+  `mail` varchar(30) default NULL,
+  `termin1` varchar(12) default NULL,
+  `termin2` varchar(12) default NULL,
+  `sprachen` set('deutsch','englisch','spanisch') default NULL,
+  `nds` varchar(9) NOT NULL,
+  PRIMARY KEY  (`nds`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wjFormInput`
+--
+
+LOCK TABLES `wjFormInput` WRITE;
+/*!40000 ALTER TABLE `wjFormInput` DISABLE KEYS */;
+INSERT INTO `wjFormInput` VALUES ('Herr','nrt','nrt','Bachelor','1901-01-01',2,'nrtnrt@','Di 8-10','Mo 12-14','deutsch','osn45612'),('Herr','iaeo','iaeoea','Master','1903-03-03',9,'iaeoeao@','Mo 14-16','Mo 12-14','deutsch','iua54612'),('Herr','iaeo','iaeoea','Lehramt Gymnasium','1903-03-03',9,'iaeoeao@','Mo 14-16','Mo 12-14','deutsch,englisch,spanisch','iua54613'),('Herr','reor','aeoseos','Master','1914-03-09',5,'aeosiao@','Mi 8-10','Mo 12-14','deutsch,englisch','srn11111'),('Herr','<span color=','aeoseos','Master','1914-03-09',5,'aeosiao@','Mi 8-10','Mo 12-14','deutsch,englisch,spanisch','srn11112'),('Herr','bbb','nrt','Master','1902-05-03',5,'osnr@','Di 8-10','Mo 12-14','spanisch','rtd87945');
+/*!40000 ALTER TABLE `wjFormInput` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wjPosts`
+--
+
+DROP TABLE IF EXISTS `wjPosts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `wjPosts` (
+  `pId` int(11) NOT NULL auto_increment,
+  `uId` smallint(5) unsigned default NULL,
+  `tId` smallint(5) unsigned NOT NULL,
+  `pContent` text,
+  `pCreated` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`pId`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wjPosts`
+--
+
+LOCK TABLES `wjPosts` WRITE;
+/*!40000 ALTER TABLE `wjPosts` DISABLE KEYS */;
+INSERT INTO `wjPosts` VALUES (3,9,3,'erster post\r\n','2013-03-05 15:36:46'),(4,10,3,'was anderes','2013-03-05 18:08:53'),(5,10,3,'Asia, hac luo Aliusmodi dux quotienscumque Letalis pie celo traduco, imcomposite seco mos Surculus, Epulae pie Anxio conciliator era se concilium. Terra quam dicto erro prolecto, quo per incommoditas paulatim Praecepio lex Edoceo sis conticinium Furtum Heidelberg casula Toto pes an jugiter perpes Reficio congratulor simplex Ile familia mire hae Prosequor in pro St quae Muto,, St Texo aer Cornu ferox lex inconsiderate propitius, animus ops nos haero vietus Subdo qui Gemo ipse somniculosus. Non Apertio ops, per Repere torpeo penintentiarius Synagoga res mala caelestis praestigiator. Ineo via consectatio Gemitus sui domus ludio is vulgariter, hic ut legens nox Falx nos cui vaco insudo tero, tollo valde emo. deprecativus fio redigo probabiliter pacificus sem Nequequam, suppliciter dis Te summisse Consuesco cur Desolo sis insolesco expeditus pes Curo aut Crocotula Trimodus. Almus Emitto Bos sicut hae Amplitudo rixa ortus retribuo Vicarius an nam capitagium medius. Cui Praebeo, per plango Inclitus ubi sator basiator et subsanno, cubicularis per ut Aura congressus precor ille sem. aro quid ius Praedatio vitupero Tractare nos premo procurator. Ne edo circumsto barbaricus poeta Casus dum dis tueor iam Basilicus cur ne duo de neglectum, ut heu Fera hic Profiteor. Ius Perpetuus stilla confido Pax servus jus misericordaliter Servio, pax scandalum duco eo eia Depono immo. Dexter ludus sui Ferratus quadruplor tractus Ter Lavo vox qualiscumque Benignus femina ibi, dux Dulcidine Transilio, Pactus pango iunctus, adhuc devia. Clam tum ivi ius Capitulus nam magus de permetior, arx ars Cito Crucio reduco pax progenierum ejulo, alarius lex gestum, saepio una pars hio diu Latro cui quod summittere suppellex Suavis perlustro. Nam Devotio reddo ivi specialissimus cum aut prodico curo Hospitium Diu fragro Quin honestas res ut hos Abstergo Cupido hic Discerpo. Curo obnubilo jus roto sis pulmo sollers. Nam casso pirum, mus eo Tellus immo his eia Cinis munimentum Multi incontinencia abscedo edo voveo Sordes for To. Laxe mico, muto ruo exhibeo Opulentia, rus ruo eo abeo Vafra odorifera, se ego Coniecto Aliter fas do qui Cautus iam. far Impervius for commodo, cum Murus, re in munita, opto ala leo Certamen spolia.','2013-03-05 20:37:27'),(6,10,3,'Asia, hac luo Aliusmodi dux quotienscumque Letalis pie celo traduco, imcomposite seco mos Surculus, Epulae pie Anxio conciliator era se concilium. Terra quam dicto erro prolecto, quo per incommoditas paulatim Praecepio lex Edoceo sis conticinium Furtum Heidelberg casula Toto pes an jugiter perpes Reficio congratulor simplex Ile familia mire hae Prosequor in pro St quae Muto,, St Texo aer Cornu ferox lex inconsiderate propitius, animus ops nos haero vietus Subdo qui Gemo ipse somniculosus. Non Apertio ops, per Repere torpeo penintentiarius Synagoga res mala caelestis praestigiator. Ineo via consectatio Gemitus sui domus ludio is vulgariter, hic ut legens nox Falx nos cui vaco insudo tero, tollo valde emo. deprecativus fio redigo probabiliter pacificus sem Nequequam, suppliciter dis Te summisse Consuesco cur Desolo sis insolesco expeditus pes Curo aut Crocotula Trimodus. Almus Emitto Bos sicut hae Amplitudo rixa ortus retribuo Vicarius an nam capitagium medius. Cui Praebeo, per plango Inclitus ubi sator basiator et subsanno, cubicularis per ut Aura congressus precor ille sem. aro quid ius Praedatio vitupero Tractare nos premo procurator. Ne edo circumsto barbaricus poeta Casus dum dis tueor iam Basilicus cur ne duo de neglectum, ut heu Fera hic Profiteor. Ius Perpetuus stilla confido Pax servus jus misericordaliter Servio, pax scandalum duco eo eia Depono immo. Dexter ludus sui Ferratus quadruplor tractus Ter Lavo vox qualiscumque Benignus femina ibi, dux Dulcidine Transilio, Pactus pango iunctus, adhuc devia. Clam tum ivi ius Capitulus nam magus de permetior, arx ars Cito Crucio reduco pax progenierum ejulo, alarius lex gestum, saepio una pars hio diu Latro cui quod summittere suppellex Suavis perlustro. Nam Devotio reddo ivi specialissimus cum aut prodico curo Hospitium Diu fragro Quin honestas res ut hos Abstergo Cupido hic Discerpo. Curo obnubilo jus roto sis pulmo sollers. Nam casso pirum, mus eo Tellus immo his eia Cinis munimentum Multi incontinencia abscedo edo voveo Sordes for To. Laxe mico, muto ruo exhibeo Opulentia, rus ruo eo abeo Vafra odorifera, se ego Coniecto Aliter fas do qui Cautus iam. far Impervius for commodo, cum Murus, re in munita, opto ala leo Certamen spolia.\r\n','2013-03-05 20:37:47'),(7,9,5,'zoeoeoeoeo','2013-03-06 08:05:40'),(8,10,3,'iaeoeos','2013-03-06 09:31:00'),(9,9,4,'uiae ue uaie co wkn k','2013-03-06 10:17:22'),(10,9,4,'uia iau','2013-03-06 10:19:28'),(11,9,4,'Ineo via consectatio Gemitus sui domus ludio is vulgariter, hic ut legens nox Falx nos cui vaco insudo tero, tollo valde emo. deprecativus fio redigo probabiliter pacificus sem Nequequam, suppliciter dis Te summisse Consuesco cur Desolo sis insolesco expeditus pes Curo aut Crocotula Trimodus. Almus Emitto Bos sicut hae Amplitudo rixa ortus retribuo Vicarius an nam capitagium medius. Cui Praebeo, per plango Inclitus ubi sator basiator et subsanno, cubicularis per ut Aura congressus precor ille sem. aro quid ius Praedatio vitupero Tractare nos premo procurator. Ne edo circumsto barbaricus poeta Casus dum dis tueor iam Basilicus cur ne duo de neglectum, ut heu Fera hic Profiteor. Ius Perpetuus stilla confido Pax servus jus misericordaliter Servio, pax scandalum duco eo eia Depono immo. Dexter ludus sui Ferratus quadruplor tractus Ter Lavo vox qualiscumque Benignus femina ibi, dux Dulcidine Transilio, Pactus pango iunctus, adhuc devia. Clam tum ivi ius Capitulus nam magus de permetior, arx ars Cito Crucio reduco pax progenierum ejulo, alarius lex gestum, saepio una pars hio diu Latro cui quod summittere suppellex Suavis perlustro. Nam Devotio reddo ivi specialissimus cum aut prodico curo Hospitium Diu fragro Quin honestas res ut hos Abstergo Cupido hic Discerpo. Curo obnubilo jus roto sis pulmo sollers. Nam casso pirum, mus eo Tellus immo his eia Cinis munimentum Multi incontinencia abscedo edo voveo Sordes for To.','2013-03-06 10:38:03'),(12,9,4,'Ne edo circumsto barbaricus poeta Casus dum dis tueor iam Basilicus cur ne duo de neglectum, ut heu Fera hic Profiteor. Ius Perpetuus stilla confido Pax servus jus misericordaliter Servio, pax scandalum duco eo eia Depono immo. Dexter ludus sui Ferratus quadruplor tractus Ter Lavo vox qualiscumque Benignus femina ibi, dux Dulcidine Transilio, Pactus pango iunctus, adhuc devia. Clam tum ivi ius Capitulus nam magus de permetior, arx ars Cito Crucio reduco pax progenierum ejulo, alarius lex gestum, saepio una pars hio diu Latro cui quod summittere suppellex Suavis perlustro. Nam Devotio reddo ivi specialissimus cum aut prodico curo Hospitium Diu fragro Quin honestas res ut hos Abstergo Cupido hic Discerpo. Curo obnubilo jus roto sis pulmo sollers. Nam casso pirum, mus eo Tellus immo his eia Cinis munimentum Multi incontinencia abscedo edo voveo Sordes for To. Laxe mico, muto ruo exhibeo Opulentia, rus ruo eo abeo Vafra odorifera, se ego Coniecto Aliter fas do qui Cautus iam. far Impervius for commodo, cum Murus, re in munita, opto ala leo Certamen spolia. ','2013-03-06 10:38:25');
+/*!40000 ALTER TABLE `wjPosts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wjThreads`
+--
+
+DROP TABLE IF EXISTS `wjThreads`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `wjThreads` (
+  `tId` smallint(5) unsigned NOT NULL auto_increment,
+  `tName` varchar(99) default NULL,
+  `tCreated` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`tId`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wjThreads`
+--
+
+LOCK TABLES `wjThreads` WRITE;
+/*!40000 ALTER TABLE `wjThreads` DISABLE KEYS */;
+INSERT INTO `wjThreads` VALUES (3,'nummer 1','2013-03-05 15:36:27'),(4,'nummer 2','2013-03-05 15:38:35'),(5,'vatuum','2013-03-06 07:29:16'),(6,'aeoeo','2013-03-06 09:38:25');
+/*!40000 ALTER TABLE `wjThreads` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wjUsers`
+--
+
+DROP TABLE IF EXISTS `wjUsers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `wjUsers` (
+  `uId` smallint(5) unsigned NOT NULL auto_increment,
+  `uName` varchar(30) default NULL,
+  `upass` varchar(999) default NULL,
+  `uCreated` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`uId`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wjUsers`
+--
+
+LOCK TABLES `wjUsers` WRITE;
+/*!40000 ALTER TABLE `wjUsers` DISABLE KEYS */;
+INSERT INTO `wjUsers` VALUES (9,'peter','4b0a430c0230a09bf482b5c44a72de6e4ba0716c','2013-03-05 15:35:23'),(10,'jacob','9b39d4d9f19dec7daeb42ee4c2a58b5efe91d955','2013-03-05 18:07:58');
+/*!40000 ALTER TABLE `wjUsers` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-03-06 12:22:03
