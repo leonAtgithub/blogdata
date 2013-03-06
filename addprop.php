@@ -73,13 +73,41 @@ elseif (isset($_GET['id']))
         $id=(int)$_GET['id'];
 
         $sql = "select * from pfs_propdef where `id`=$id ";
-
         $result = mysqli_query($db,$sql); 
 
         //var_dump(mysqli_fetch_array($result));
 
         $val=mysqli_fetch_array($result);
 
+
+    }   
+
+    else 
+
+    {
+
+        echo "Netter versuch";
+
+    }
+}
+elseif (isset($_GET['deleteID']))
+
+{
+
+    echo "GET:";
+
+    //post id via get erhalten --> abruf ausder Datenbank und füllen des formulars
+
+    if (is_numeric($_GET['deleteID']))
+
+    {   
+
+        $id=(int)$_GET['deleteID'];
+        $sql = "delete from pfs_propdef where `id`=$id";
+        $result = mysqli_query($db,$sql); 
+	$sql = "delete from pfs_props where `pfs_propdef_id`=$id ";
+	$result = mysqli_query($db,$sql); 
+        //var_dump(mysqli_fetch_array($result));
 
     }   
 
@@ -124,7 +152,7 @@ print_r($_GET);
 
 <thead>
 
-<tr><th>ID</th><th>PROPERTY</th> <th>TYP</th><th>LINK</th></tr>
+<tr><th>ID</th><th>PROPERTY</th> <th>TYP</th><th>EDIT</th><th>DELETE</th></tr>
 
 </thead><tbody>
 
@@ -144,7 +172,7 @@ while ($myrow = mysqli_fetch_array($result))
 
    
 
-    printf("<tr><td>%s </td><td>%s</td><td>%s</td><td><a href='%s'>Edit</a></td></tr>\n",
+    printf("<tr><td>%s </td><td>%s</td><td>%s</td><td><a href='%s'>Edit</a></td><td><a href='%s'>Delete</a></td></tr>\n",
 
             $myrow['id'],
 
@@ -152,7 +180,8 @@ while ($myrow = mysqli_fetch_array($result))
 
             $myrow['typ'],
 
-            "?id=".$myrow['id']);
+            "?id=".$myrow['id'],
+	    "?deleteID=".$myrow['id']);
 
 }
 
