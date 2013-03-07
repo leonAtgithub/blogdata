@@ -26,6 +26,7 @@
       <li ><a href="addentry.php"> Einträge hinzufügen </a></li>
       <li> <a href="addprop.php"> Properties definieren </a> </li>
       <li><a href="#">Link</a></li>
+      <li> <a href="search.php"> Suchen </a> </li>
     </ul>
   </div>
 </div>
